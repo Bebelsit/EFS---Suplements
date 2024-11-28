@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suplementos e Vitaminas | Academia</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .containertxt {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 20px;
+        }
+        
+        .carrossel {
+            position: relative;
+            width: 639px;
+            height: 258px;
+            overflow: hidden;
+            border: 2px solid #ffffff;
+            border-radius: 10px;
+            align-items: center;
+        }
+        
+        .imagens {
+            display: flex;
+            transition: transform 1s ease;
+            width: 639px;
+            /* Ajustar para 639px para apenas uma imagem */
+        }
+        
+        .imagem {
+            width: 639px;
+            height: 258px;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: white;
+        }
+        
+        .imagem1 {
+            background-color: #ff5733;
+        }
+        
+        .imagem2 {
+            background-color: #33c4ff;
+        }
+        
+        .imagem3 {
+            background-color: #75ff33;
+        }
+        
+        .seta {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            color: black;
+            border: none;
+            cursor: pointer;
+            font-size: 30px;
+            z-index: 1;
+        }
+        
+        .seta-esquerda {
+            left: 10px;
+        }
+        
+        .seta-direita {
+            right: 10px;
+        }
+        
+        .containerh2 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .h2 {
+            text-align: center;
+            padding: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Logo" />
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar..." />
+            </div>
+            <div class="icons">
+                <a href="login.html"><img src="login 1.png" alt="Login" /></a>
+                <a href="cadastro.html"><img src="account-circle.png" alt="Conta" /></a>
+                <a href="#"><img src="Vector.png" alt="Carrinho" /></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu -->
+    <nav class="main-menu">
+        <ul>
+            <li><a href="indeex.html">Home</a></li>
+            <li><a href="page2.html">Produtos</a></li>
+            <li><a href="categorias.html">Categorias</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="parceiro.html">Parceiros</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2 style="color: #a5a3a3">Parceiros</h2>
+    </div>
+
+    <br />
+
+    <div class="container">
+        <div class="carrossel">
+            <div class="imagens">
+                <div><img src="parceiro.png" alt="" /></div>
+                <div class="imagem imagem2">Imagem 2</div>
+                <div class="imagem imagem3">Imagem 3</div>
+            </div>
+            <button class="seta seta-esquerda" onclick="mudarImagem(-1)">
+                    &#10094;
+                </button>
+            <button class="seta seta-direita" onclick="mudarImagem(1)">
+                    &#10095;
+                </button>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="container">
+        <h2 style="color: #a5a3a3">Acreditamos Em...</h2>
+    </div>
+
+    <div class="containertxt">
+        <h2 style="color: black">
+            Acreditamos firmemente que a qualidade dos produtos que disponibilizamos é fundamental para o sucesso e o bem-estar de nossos membros. Por isso, selecionamos apenas parceiros que compartilham de nossa paixão por um estilo de vida saudável e ativo.
+        </h2>
+    </div>
+
+    <br />
+
+    <div class="containerh2">
+        <h2 class="h2">★Excelência</h2>
+        <h2 class="h2">★Inovação</h2>
+        <h2 class="h2">★Eficácia</h2>
+        <h2 class="h2">★Dedicação</h2>
+        <h2 class="h2">★Segurança</h2>
+        <h2 class="h2">★Qualidade superior</h2>
+    </div>
+
+    <script>
+        let index = 0;
+        const imagens = document.querySelector(".imagens");
+        const totalImagens = 3; // Total de imagens
+
+        function mudarImagem(direcao) {
+            index += direcao;
+
+            // Lógica de loop
+            if (index >= totalImagens) {
+                index = 0; // Volta para a primeira imagem
+            } else if (index < 0) {
+                index = totalImagens - 1; // Volta para a última imagem
+            }
+
+            imagens.style.transform = `translateX(-${index * 639}px)`; // Ajusta a posição
+        }
+
+        function autoMudarImagem() {
+            mudarImagem(1); // Muda para a próxima imagem
+        }
+
+        setInterval(autoMudarImagem, 4000); // Muda a imagem a cada 4 segundos
+    </script>
+
+    <footer class="footer">
+        <div class="section">
+            <div class="column">
+                <h3>Contatos</h3>
+                <p>Telefone: (xx)xxxxx-xxxx</p>
+                <p>Email: empresainfo@gmail.com</p>
+            </div>
+            <div class="column">
+                <h3>Sobre nós</h3>
+                <p>Rua Exemplo, 123</p>
+                <p>Palmital SP</p>
+                <p>CEP: xxxx-xxxx</p>
+                <p>© 2024</p>
+            </div>
+            <div class="column">
+                <h3>Informações</h3>
+                <p>
+                    Somos uma empresa comprometida em fornecer soluções de alta qualidade para nossos clientes. Saiba mais sobre nossa história e missão.
+                </p>
+            </div>
+        </div>
+        <div class="social-media">
+            <div class="column">
+                <a class="icon" href="https://facebook.com" target="_blank"><img class="icon" src="face.png" alt="Facebook" /></a>
+                <a class="icon" href="#" target="_blank"><img class="icon" src="youtube.png" alt="Youtube" /></a>
+                <a class="icon" href="https://instagram.com" target="_blank"><img class="icon" src="instagram.png" alt="Instagram" /></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
